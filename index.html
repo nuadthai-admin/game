@@ -56,7 +56,9 @@
    function sendDataToGoogleSheet() {
      var name = document.getElementById("userName").value;
      var stuId = document.getElementById("uid").value;
-     var url = 'https://script.google.com/macros/s/AKfycbwTSfGlHVyyEidU5ERga4rJWLBJKDLVSg96cLFU_W68GsqOiFW7xCITBXqzGEo2XiEz/exec?name=' + encodeURIComponent(name)+ '&stuId=' + encodeURIComponent(stuId);
+     var stuName= document.getElementById("stuName").value;
+     var url = 'https://script.google.com/macros/s/AKfycbwTSfGlHVyyEidU5ERga4rJWLBJKDLVSg96cLFU_W68GsqOiFW7xCITBXqzGEo2XiEz/exec?name=' + encodeURIComponent(name)+ '&stuId=' + encodeURIComponent(stuId)+ '&stuName=' + encodeURIComponent(stuName);
+            
             
      fetch(url)
         .then(response => response.json())
