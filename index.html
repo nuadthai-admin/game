@@ -23,16 +23,19 @@
           .then(data => {
               const output = data.content
               for (var i = 0; i < output.length; i++) {
-      if (output[i][10] == id) {  
+      if (output[i][10] == id) {
+        var fname = output[i][3]
+        var lname = output[i][4]
         var phone = output[i][7]
         var stuId = output[i][9]
         
-        
+        document.getElementById('stuName').value = fname+" "+lname
         document.getElementById('phone').value = phone
         document.getElementById('uid').value = stuId
         document.getElementById('status').innerHTML = "พร้อมเข้าระบบ"
         break;
       }else{
+        document.getElementById('stuName').value = "คุณไม่มีชื่อในระบบห้องเรียน"
         document.getElementById('status').innerHTML = "ไม่พบข้อมูล"
       }
               }
@@ -46,6 +49,7 @@
        }
 
         document.addEventListener("DOMContentLoaded", function() {
+          document.getElementById('status').innerHTML = "รอสักครู่..."
             initializeLiff();
         });
       
@@ -91,22 +95,43 @@
        
     </script>
 </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Prompt', sans-serif; */
+  /* font-family: "Kanit", sans-serif; */
+  font-family: "Noto Sans Thai", sans-serif;
+}
+    body{
+  background-image: url("https://lh3.googleusercontent.com/d/1wM1I600rJGG9R6-KiKf-MB84t7lR574h");
+  padding: 0 10px;
+  background-size: cover;
+}
+  </style>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"></center>
+  <center><img src= 'https://lh3.googleusercontent.com/d/1wuRbGYdIikuokzpLdagdF53QStAWFHbc'width="100px" margin-top = '3px'></img></center>
         <h1 class="text-2xl font-bold mb-6 text-center">เข้าระบบห้องเรียน</h1>
         <!-- <form action="save_attendance.php" method="post"> -->
           <form id = "formLogin" onsubmit="submitForm()">
             <div class="mb-4">
-                <label for="userName" class="block text-gray-700 font-bold mb-2">ชื่อไลน์ของนักเรียน:</label>
-                <input type="text" id="userName" name="userName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
+                <label for="stuName" class="block text-gray-700 font-bold mb-2">ชื่อ-นามสกุล:</label>
+                <input type="text" id="stuName" name="stuName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
             </div>
             <div class="mb-4">
-                <label for="phone" class="block text-gray-700 font-bold mb-2">โทรศัพท์:</label>
-                <input type="text" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly >
+<!--                 <label for="userName" class="block text-gray-700 font-bold mb-2">ชื่อไลน์ของนักเรียน:</label> -->
+                <input type="hidden" id="userName" name="userName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
             </div>
             <div class="mb-4">
-                <label for="lineUid" class="block text-gray-700 font-bold mb-2">เลขประจำตัว:</label>
-                <input type="text" id="uid" name="lineUid"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
+<!--             <label for="phone" class="block text-gray-700 font-bold mb-2">โทรศัพท์:</label> -->
+                <input type="hidden" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly >
+            </div>
+            <div class="mb-4">
+<!--                 <label for="lineUid" class="block text-gray-700 font-bold mb-2">เลขประจำตัว:</label> -->
+                <input type="hidden" id="uid" name="lineUid"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">เข้าห้องเรียน</button>
