@@ -37,6 +37,15 @@
       }else{
         document.getElementById('stuName').value = "คุณไม่มีชื่อในระบบห้องเรียน"
         document.getElementById('status').innerHTML = "รอการยืนยันข้อมูล"
+          Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'ไม่พบข้อมูล',
+                    text: 'ยืนยันหมายเลขโทรศัพท์',
+                    showConfirmButton: true,
+                    // timer: 1500
+                });
+          window.open('https://liff.line.me/2006426262-DqRM7QEB','_top')
       }
               }
                    
@@ -96,6 +105,7 @@
        
        
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.min.js" integrity="sha512-FbWDiO6LEOsPMMxeEvwrJPNzc0cinzzC0cB/+I2NFlfBPFlZJ3JHSYJBtdK7PhMn0VQlCY1qxflEG+rplMwGUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
