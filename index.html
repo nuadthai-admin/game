@@ -6,6 +6,7 @@
     <title>เข้าเรียนหลักสูตรวิชาชีพ</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.css" integrity="sha512-n1PBkhxQLVIma0hnm731gu/40gByOeBjlm5Z/PgwNxhJnyW1wYG8v7gPJDT6jpk0cMHfL8vUGUVjz3t4gXyZYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
        async function initializeLiff() {
          
@@ -37,6 +38,7 @@
       }else{
         document.getElementById('stuName').value = "คุณไม่มีชื่อในระบบห้องเรียน"
         document.getElementById('status').innerHTML = "รอการยืนยันข้อมูล"
+          event.preventDefault();
           Swal.fire({
                     position: 'center',
                     icon: 'error',
