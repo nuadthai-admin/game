@@ -34,12 +34,15 @@
         document.getElementById('phone').value = phone
         document.getElementById('uid').value = stuId
         document.getElementById('status').innerHTML = "พร้อมเข้าระบบ"
+        document.getElementById('btn1').style.display = "block"
+        document.getElementById('btn2').style.display = "none"
         break;
       }else{
           
         document.getElementById('stuName').value = "คุณไม่มีชื่อในระบบห้องเรียน"
         document.getElementById('status').innerHTML = "รอการยืนยันข้อมูล"
-          
+        document.getElementById('btn2').style.display = "block"
+        document.getElementById('btn1').style.display = "none"
          
       }
               }
@@ -54,6 +57,8 @@
 
         document.addEventListener("DOMContentLoaded", function() {
           document.getElementById('status').innerHTML = "รอสักครู่..."
+          document.getElementById('btn1').style.display = "none"
+          document.getElementById('btn2').style.display = "none"
             initializeLiff();
         });
       
@@ -89,16 +94,10 @@
               window.open('https://sites.google.com/view/e-nuadthai/normal','_top')
                 
             } else {
-                event.preventDefault();
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'ไม่พบข้อมูล',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                 
+              event.preventDefault();
+                
           window.open('https://liff.line.me/2006426262-DqRM7QEB','_top')
+                
                 document.getElementById('status').innerHTML = "เข้าระบบไม่ได้";
             }
         }
@@ -151,7 +150,8 @@
                 <input type="hidden" id="uid" name="lineUid"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
             </div>
             <div class="flex items-center justify-between">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">ตกลง</button>
+                <button id="btn1" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">เข้าระบบ</button>
+              <button id="btn2" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">ยืนยันหมายเลขโทรศัพท์</button>
                 <span id ="status"></span>
             </div>
         </form>
